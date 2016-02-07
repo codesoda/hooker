@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hook:</strong>
+  <%= @call.hook.url %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @call.event_type %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @call.data %>
+</p>
+
+<%= link_to 'Edit', edit_call_path(@call) %> |
+<%= link_to 'Back', calls_path %>

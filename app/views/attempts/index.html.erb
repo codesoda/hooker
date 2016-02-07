@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Attempts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Call</th>
+      <th>Url</th>
+      <th>Http code</th>
+      <th>Http status</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attempts.each do |attempt| %>
+      <tr>
+        <td><%= attempt.call %></td>
+        <td><%= attempt.url %></td>
+        <td><%= attempt.http_code %></td>
+        <td><%= attempt.http_status %></td>
+        <td><%= attempt.status %></td>
+        <td><%= link_to 'Show', attempt %></td>
+        <td><%= link_to 'Edit', edit_attempt_path(attempt) %></td>
+        <td><%= link_to 'Destroy', attempt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attempt', new_attempt_path %>

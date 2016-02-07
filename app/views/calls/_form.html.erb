@@ -1,0 +1,29 @@
+<%= form_for(@call) do |f| %>
+  <% if @call.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@call.errors.count, "error") %> prohibited this call from being saved:</h2>
+
+      <ul>
+      <% @call.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hook_id %><br>
+    <%= f.select :hook_id, options_from_collection_for_select(Hook.all, :id, :url) %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.select :event_type, options_for_select(['created', 'updated', 'deleted', 'charged', 'refunded', 'chargeback']) %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.text_area :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
